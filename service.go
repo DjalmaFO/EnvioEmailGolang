@@ -2,8 +2,6 @@ package main
 
 import (
 	"log"
-
-	"github.com/joho/sqltocsv"
 )
 
 func pegarRelatorio(site, empresa, tabela string) (string, error) {
@@ -30,9 +28,15 @@ func pegarRelatorio(site, empresa, tabela string) (string, error) {
 	defer rows.Close()
 
 	log.Println("Montando relatório")
-	err = sqltocsv.WriteFile("relatorio.csv", rows)
+	// err = sqltocsv.WriteFile("relatorio.csv", rows)
+	// if err != nil {
+	// 	panic(err)
+	// }
+
+	exc := "relatorio.xlsx"
+	err = generateXLSXFromRows(rows, exc)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	frase := `Segue anexo, relatorio.csv `
