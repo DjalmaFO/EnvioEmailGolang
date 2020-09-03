@@ -28,6 +28,7 @@ func pegarRelatorio(site, empresa, tabela string) (string, error) {
 	defer rows.Close()
 
 	log.Println("Montando relatório")
+	// Criação de arquivo CSV comentada para utilidade de aproveitamento de codigo (preservação de codigo)
 	// err = sqltocsv.WriteFile("relatorio.csv", rows)
 	// if err != nil {
 	// 	panic(err)
