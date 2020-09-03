@@ -29,8 +29,9 @@ func enviarEmailAnexo(frase string) error {
 	// Set E-Mail sender
 	m.SetHeader("From", remetente)
 
+	para := os.Getenv("GRUPO_EMAIL")
 	// Set E-Mail receivers
-	m.SetHeader("To", "djalma.oliveira@intecomlogistica.com.br")
+	m.SetHeader("To", para)
 	// m.SetHeader("Cc", "anotherguy@example.com")
 	// m.SetHeader("Bcc", "office@example.com", "anotheroffice@example.com")
 
