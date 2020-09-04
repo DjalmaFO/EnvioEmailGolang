@@ -40,7 +40,7 @@ func pegarRelatorio(site, empresa, tabela string) (string, error) {
 		log.Fatal(err)
 	}
 
-	frase := `Segue anexo, relatorio.csv `
+	frase := `Segue anexo, relatorio.xlsx`
 
 	err = enviarEmailAnexo(frase)
 	if err != nil {
